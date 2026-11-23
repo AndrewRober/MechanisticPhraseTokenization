@@ -2,10 +2,11 @@
 ### Mechanistic Multi-Word Vocabulary Allocation, Compositional-Residual Folding, and Test-Time Compute Gearshifting
 
 [![Paper PDF](https://img.shields.io/badge/Paper-PDF%20(15%20Pages)-b31b1b.svg)](paper/main.pdf)
-[![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Models%20%26%20Tokenizers-ffb000.svg)](https://huggingface.co/AndrewR123/MechanisticPhraseTokenization)
+[![HuggingFace Models](https://img.shields.io/badge/%F0%9F%A4%97%20Models-30M%20%26%20150M%20Weights-ffb000.svg)](https://huggingface.co/AndrewR123/MechanisticPhraseTokenization)
+[![HuggingFace Space](https://img.shields.io/badge/%F0%9F%A7%AC%20HF%20Space-Interactive%20Explorer-0ea5e9.svg)](https://huggingface.co/spaces/AndrewR123/Research-Portfolio)
+[![HuggingFace Dataset](https://img.shields.io/badge/%F0%9F%93%8A%20HF%20Dataset-34--Model%20Benchmarks-10b981.svg)](https://huggingface.co/datasets/AndrewR123/MechanisticPhraseTokenization-Benchmarks)
 [![CI](https://github.com/AndrewRober/MechanisticPhraseTokenization/actions/workflows/verify.yml/badge.svg)](https://github.com/AndrewRober/MechanisticPhraseTokenization/actions/workflows/verify.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Models Trained](https://img.shields.io/badge/From--Scratch%20LLMs-34%20Models%20(30M%E2%86%92150M)-blue.svg)](RESULTS_REPORT.md)
 
 Official codebase, SHA256-pinned split manifests, 34-model JSON scoreboards, figure generators, and LaTeX source for **"What Earns a Phrase Its Own Token? Mechanistic Multi-Word Vocabulary Allocation, Compositional-Residual Folding, and Test-Time Compute Gearshifting."**
 
