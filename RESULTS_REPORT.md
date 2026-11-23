@@ -2,13 +2,13 @@
 
 > [!IMPORTANT]
 > **Execution Status: `100% COMPLETE` (`exit_code = 0`, `34` from-scratch Transformer pretraining runs = `30` × `30.42M` models + `4` × `149.58M` `5x` scale-up models + `14`-layer attention X-rays).**
-> All raw JSON datasets and scoreboards are archived locally in [results/](file:///e:/tokenizer%20research/results):
-> * [dataset_manifest.json](file:///e:/tokenizer%20research/results/dataset_manifest.json) — SHA256-pinned `FineWeb-Edu` (`120M` + `350M` train + `Calib A/B` + `Val` + `Test`), `TinyStories` OOD, and `BLiMP` splits
-> * [stage_a_audit.json](file:///e:/tokenizer%20research/results/stage_a_audit.json) — Lossless UTF-8 round-trip & active phrase emission audit across all 11 tokenizers
-> * [stage_b_scoreboard.json](file:///e:/tokenizer%20research/results/stage_b_scoreboard.json) — Full 11-method `120M` Iso-Bytes screening leaderboard
-> * [breakthroughs_stage_cd_results.json](file:///e:/tokenizer%20research/results/breakthroughs_stage_cd_results.json) — Prefix-Cone Audit, `Control_VEGAD`, `BT1`–`BT3` breakthroughs, `Iso-FLOPs` duel, learned $\|\Delta_P\|_2$ idiom rankings, and 7-layer attention X-ray
-> * [stage_ce_scaleup_results.json](file:///e:/tokenizer%20research/results/stage_ce_scaleup_results.json) — Complete `12`-model Stage C `300M` 3-seed confirmation (`{1001, 2002, 3003}`) + Complete `4`-model Stage E `149.58M` `5x` zero-shot scale-up & 14-layer X-rays
-> * [STAGE_CE_EXIT_STATUS.json](file:///e:/tokenizer%20research/results/STAGE_CE_EXIT_STATUS.json) — Clean `exit_code = 0` completion sentinel (`2026-11-23T00:03:35Z`)
+> All raw JSON datasets and scoreboards are archived in [`results/`](results/):
+> * [`dataset_manifest.json`](results/dataset_manifest.json) — SHA256-pinned `FineWeb-Edu` (`120M` + `350M` train + `Calib A/B` + `Val` + `Test`), `TinyStories` OOD, and `BLiMP` splits
+> * [`stage_a_audit.json`](results/stage_a_audit.json) — Lossless UTF-8 round-trip & active phrase emission audit across all 11 tokenizers
+> * [`stage_b_scoreboard.json`](results/stage_b_scoreboard.json) — Full 11-method `120M` Iso-Bytes screening leaderboard
+> * [`breakthroughs_stage_cd_results.json`](results/breakthroughs_stage_cd_results.json) — Prefix-Cone Audit, `Control_VEGAD`, `BT1`–`BT3` breakthroughs, `Iso-FLOPs` duel, learned $`\lVert \Delta_P \rVert_2`$ idiom rankings, and 7-layer attention X-ray
+> * [`stage_ce_scaleup_results.json`](results/stage_ce_scaleup_results.json) — Complete `12`-model Stage C `300M` 3-seed confirmation (`{1001, 2002, 3003}`) + Complete `4`-model Stage E `149.58M` `5x` zero-shot scale-up & 14-layer X-rays
+> * [`STAGE_CE_EXIT_STATUS.json`](results/STAGE_CE_EXIT_STATUS.json) — Clean `exit_code = 0` completion sentinel (`2026-11-23T00:03:35Z`)
 
 ---
 
@@ -37,19 +37,19 @@
    Standard greedy decoding caused exact next-word accuracy to collapse from **`20.88%`** (`B1_ByteBPE`) down to **`9.57%`** (`C0_FreqMerge`) and **`11.70%`** (`B4_SuperBPE`) because probability mass for common onset words splits across dozens of competing superwords. Switching decoding to **Prefix-Cone Vote Aggregation** (zero weight changes!) produced **exact `0.00%` change on all 3 subword tokenizers (`B1`, `B2`, `B3`)** while **immediately boosting accuracy on superword models** (`+1.06%` on `C1` & `BT2`, `+0.93%` on `BT3_IsoFLOPs`, `+0.80%` on `SuperBPE`, `C0`, & `C4`).
 
 5. **Breakthrough 1A Confirmed — Foldable Compositional-Residual Training (`0.0` Deployment Fold Error) Unlocked the `#1` OOD Score of All 18 Models:**
-   Keeping `C3_SpilloverMerge`'s exact vocabulary fixed, parameterizing $W_P = \frac{1}{k}\sum W_{t_j} + \Delta_P$ during training (`BT1_FoldableResidual`) dropped `Test BPB` from `1.35711` $\to$ **`1.35196`** and `TinyStories` OOD `BPB` from `1.44327` $\to$ **`1.41790`** (**#1 best OOD score in the entire study**, beating even `B1_ByteBPE` `1.42218` and `B5_SupraTok` `1.41968`!). Furthermore, $\|\Delta_P\|_2$ norms **unsupervisedly separated opaque idioms** (`" over the course"` `1.44`, `" in the midst"` `1.32`, `" the way for"` `1.11`) from **transparent compounds** (`" North Carolina"` `0.39`, `" carbon dioxide"` `0.40`, `" New York"` `0.43`).
+   Keeping `C3_SpilloverMerge`'s exact vocabulary fixed, parameterizing $`W_P = \frac{1}{k}\sum W_{t_j} + \Delta_P`$ during training (`BT1_FoldableResidual`) dropped `Test BPB` from `1.35711` → **`1.35196`** and `TinyStories` OOD `BPB` from `1.44327` → **`1.41790`** (**#1 best OOD score in the entire study**, beating even `B1_ByteBPE` `1.42218` and `B5_SupraTok` `1.41968`!). Furthermore, $`\lVert \Delta_P \rVert_2`$ norms **unsupervisedly separated opaque idioms** (`" over the course"` `1.44`, `" in the midst"` `1.32`, `" the way for"` `1.11`) from **transparent compounds** (`" North Carolina"` `0.39`, `" carbon dioxide"` `0.40`, `" New York"` `0.43`).
 
 6. **Breakthrough 2 + 3 Synergy & Test-Time Compute Gearshifting:**
-   `FoldableResidual` alone blurred relational minimal pairs (`75.39%` BLiMP), whereas vetoing `3,586` high-JSD multi-binding relational spans via **`AttnDemux` ($D_{\text{bind}} > 0.0549$ bits)** + `20%` dual-granularity exposure restored and vaulted `BLiMP` to **`77.94%` (`Iso-Bytes`) / `80.57%` (`Iso-FLOPs`)**. At test time on the **exact same frozen `BT3_IsoFLOPs` checkpoint**, shifting input tokenization from High-Gear (`Superword`) $\to$ Adaptive Entropy Gearshift $\to$ Low-Gear (`Subword`, `+7.1%` tokens) scaled exact next-word accuracy monotonically **`17.69%` $\to$ `18.04%` $\to$ `19.09%` (`+1.40%` gain with zero weight or CoT changes!)**.
+   `FoldableResidual` alone blurred relational minimal pairs (`75.39%` BLiMP), whereas vetoing `3,586` high-JSD multi-binding relational spans via **`AttnDemux`** ($`D_{\text{bind}} > 0.0549`$ **bits**) + `20%` dual-granularity exposure restored and vaulted `BLiMP` to **`77.94%` (`Iso-Bytes`) / `80.57%` (`Iso-FLOPs`)**. At test time on the **exact same frozen `BT3_IsoFLOPs` checkpoint**, shifting input tokenization from High-Gear (`Superword`) → Adaptive Entropy Gearshift → Low-Gear (`Subword`, `+7.1%` tokens) scaled exact next-word accuracy monotonically **`17.69%` → `18.04%` → `19.09%` (`+1.40%` gain with zero weight or CoT changes!)**.
 
 7. **Mechanistic 7-Layer Attention X-Ray — Direct Proof of "Layer-2 Lexical Offloading":**
-   In `B1_ByteBPE`, Layer 2 spends **`15.16%`** of all attention mass looking 1 token back (`A[t, t-1]`, mean lookback `30.69` tokens) stitching subwords/phrases. In `BT3_FullSynthesis`, Layer-2 `prev-token` stitching drops by **more than half to `7.40%` (`-51.2%`)**, immediately expanding Layer-2 lookback distance to **`39.49` tokens (`+28.7%`)** and Layer-7 final discourse lookback from `24.24` $\to$ **`30.86` tokens (`+27.3%`)**.
+   In `B1_ByteBPE`, Layer 2 spends **`15.16%`** of all attention mass looking 1 token back (`A[t, t-1]`, mean lookback `30.69` tokens) stitching subwords/phrases. In `BT3_FullSynthesis`, Layer-2 `prev-token` stitching drops by **more than half to `7.40%` (`-51.2%`)**, immediately expanding Layer-2 lookback distance to **`39.49` tokens (`+28.7%`)** and Layer-7 final discourse lookback from `24.24` → **`30.86` tokens (`+27.3%`)**.
 
 ---
 
 ## Table 1: Stage A + Stage B Full 11-Method Screening (`Iso-Bytes`: Identical `120M` B1-Token Raw Text, `1,831` Matched AdamW Steps)
 
-| Rank (BPB) | Method | Group | B/tok | Active Phrase Slots | Emitted Train Toks | Test BPB (`1024`t) | **Test BPB (Byte-Matched)** | Unigram BPB | Info Gain ($\Delta$BPB) | **BLiMP (Fert-Matched)** | OOD `TinyStories` BPB | Perturb $\Delta$BPB |
+| Rank (BPB) | Method | Group | B/tok | Active Phrase Slots | Emitted Train Toks | Test BPB (`1024`t) | **Test BPB (Byte-Matched)** | Unigram BPB | Info Gain (ΔBPB) | **BLiMP (Fert-Matched)** | OOD `TinyStories` BPB | Perturb ΔBPB |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | `B3_SaGe` | Baseline (Subword) | `3.990` | `1513/2048`* | `129.83M` *(+8.2%)* | `1.34126` | **`1.34282`** | `2.52497` | `+1.18215` | `77.57%` | `1.44095` | `-0.00102` |
 | 2 | `B5_SupraTok` | Baseline (PMI-Phrase) | `4.422` | `1366/2048` | `117.24M` *(-2.3%)* | `1.34427` | **`1.34670`** | `2.49015` | `+1.14345` | `79.06%` | `1.41968` | `+0.00003` |
@@ -70,15 +70,15 @@
 
 ## Table 2: Breakthrough Suite & Equal-Compute (`Iso-FLOPs`) Results
 
-| Experiment / Model | Regime | B/tok | Emitted Train Toks | Test BPB (`1024`t) | **Test BPB (Byte-Matched)** | **OOD `TinyStories` BPB** | **BLiMP (Fert-Matched)** | Next-Word (Naive $\to$ **Prefix-Cone**) |
+| Experiment / Model | Regime | B/tok | Emitted Train Toks | Test BPB (`1024`t) | **Test BPB (Byte-Matched)** | **OOD `TinyStories` BPB** | **BLiMP (Fert-Matched)** | Next-Word (Naive → **Prefix-Cone**) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| `C3_SpilloverMerge` *(Stage B Winner)* | Iso-Bytes | `4.493` | `115.50M` | `1.35478` | `1.35711` | `1.44327` | `77.07%` | `18.22%` $\to$ **`18.75%`** |
-| `BT2_AttnDemux` *($D_{\text{bind}}$ Shield Only)* | Iso-Bytes | `4.571` | `113.5M` | `1.36519` | `1.36747` | `1.45062` | `77.66%` *(+0.59%)* | `14.76%` $\to$ **`15.82%`** *(+1.06%)* |
-| **`BT1_FoldableResidual`** *($W_P=\bar{W}_t+\Delta_P$)* | Iso-Bytes | `4.493` | `115.50M` | **`1.34933`** | **`1.35196`** | **`1.41790` (#1 All)** | `75.39%` | `17.69%` $\to$ **`18.35%`** *(+0.66%)* |
-| **`BT3_FullSynthesis`** *(Demux+Fold+Gear)* | Iso-Bytes | `4.571` | `114.2M` | `1.35343` | `1.35606` | `1.42549` | **`77.94%`** *(+2.55% vs BT1)* | `17.95%` $\to$ **`18.22%`** |
-| `B1_ByteBPE` *(Reference Baseline)* | **Iso-FLOPs** | `4.322` | **`120.00M`** | `1.34566` | `1.34775` | `1.42218` | `79.81%` | `20.88%` $\to$ `20.88%` |
-| `B4_SuperBPE_IsoFLOPs` | **Iso-FLOPs** | `4.665` | **`120.00M`** | `1.34725` | `1.34981` | `1.43221` | `78.65%` | `13.03%` $\to$ `13.30%` |
-| **`BT3_FullSynthesis_IsoFLOPs` (OURS)** | **Iso-FLOPs** | **`4.571`** | **`120.00M`** | **`1.34393` (#1)** | **`1.34682` (#1)** | **`1.42176` (#1)** | **`80.57%` (#1 All)** | `18.22%` $\to$ **`19.15%`** *(+0.93%)* |
+| `C3_SpilloverMerge` *(Stage B Winner)* | Iso-Bytes | `4.493` | `115.50M` | `1.35478` | `1.35711` | `1.44327` | `77.07%` | `18.22%` → **`18.75%`** |
+| `BT2_AttnDemux` ($`D_{\text{bind}}`$ Shield Only) | Iso-Bytes | `4.571` | `113.5M` | `1.36519` | `1.36747` | `1.45062` | `77.66%` *(+0.59%)* | `14.76%` → **`15.82%`** *(+1.06%)* |
+| **`BT1_FoldableResidual`** ($`W_P = \bar{W}_t + \Delta_P`$) | Iso-Bytes | `4.493` | `115.50M` | **`1.34933`** | **`1.35196`** | **`1.41790` (#1 All)** | `75.39%` | `17.69%` → **`18.35%`** *(+0.66%)* |
+| **`BT3_FullSynthesis`** *(Demux+Fold+Gear)* | Iso-Bytes | `4.571` | `114.2M` | `1.35343` | `1.35606` | `1.42549` | **`77.94%`** *(+2.55% vs BT1)* | `17.95%` → **`18.22%`** |
+| `B1_ByteBPE` *(Reference Baseline)* | **Iso-FLOPs** | `4.322` | **`120.00M`** | `1.34566` | `1.34775` | `1.42218` | `79.81%` | `20.88%` → `20.88%` |
+| `B4_SuperBPE_IsoFLOPs` | **Iso-FLOPs** | `4.665` | **`120.00M`** | `1.34725` | `1.34981` | `1.43221` | `78.65%` | `13.03%` → `13.30%` |
+| **`BT3_FullSynthesis_IsoFLOPs` (OURS)** | **Iso-FLOPs** | **`4.571`** | **`120.00M`** | **`1.34393` (#1)** | **`1.34682` (#1)** | **`1.42176` (#1)** | **`80.57%` (#1 All)** | `18.22%` → **`19.15%`** *(+0.93%)* |
 
 ---
 
@@ -100,11 +100,11 @@
 
 ---
 
-## Table 4: Unsupervised Discovery of Idiomaticity via Foldable Residual Norms $\|\Delta_P\|_2$
+## Table 4: Unsupervised Discovery of Idiomaticity via Foldable Residual Norms $`\lVert \Delta_P \rVert_2`$
 
-Because `BT1_FoldableResidual` applies `3x` stronger weight decay (`0.30`) exclusively to $\Delta_P$ in $W_P = \frac{1}{k}\sum W_{t_j} + \Delta_P$, phrases only acquire large $\|\Delta_P\|_2$ when linear constituent averaging fails:
+Because `BT1_FoldableResidual` applies `3x` stronger weight decay (`0.30`) exclusively to $`\Delta_P`$ in $`W_P = \frac{1}{k}\sum W_{t_j} + \Delta_P`$, phrases only acquire large $`\lVert \Delta_P \rVert_2`$ when linear constituent averaging fails:
 
-| Highest $\|\Delta_P\|_2$ (Opaque Idioms / Institutional Frames) | $\|\Delta_P\|_2$ | Lowest $\|\Delta_P\|_2$ (Transparent Compositional Phrases) | $\|\Delta_P\|_2$ |
+| Highest $`\lVert \Delta_P \rVert_2`$ (Opaque Idioms / Institutional Frames) | $`\lVert \Delta_P \rVert_2`$ | Lowest $`\lVert \Delta_P \rVert_2`$ (Transparent Compositional Phrases) | $`\lVert \Delta_P \rVert_2`$ |
 | :--- | :---: | :--- | :---: |
 | `" over the course"` | **`1.438`** | `" North Carolina"` | **`0.388`** |
 | `" Control and Prevention"` | **`1.383`** | `" carbon dioxide"` | **`0.405`** |
@@ -143,17 +143,21 @@ All 12 models were trained from scratch on strictly holdout-disjoint `FineWeb-Ed
 | **`B5_SupraTok`** | `4.422` | `1.20349 ± 0.00232` | `83.64% ± 1.80%` | `82.32% ± 1.37%` | `18.66%` $\to$ `18.75% ± 0.48%` | `37.27% ± 0.12%` | `31.00% ± 1.11%` | `+0.00058 ± 0.00018` |
 | **`BT3_FullSynthesis` *(q=0.20)*** | `4.571` | `1.21369 ± 0.00044` | **`86.44% ± 0.31%` (#1)** | `83.41% ± 0.45%` | **`21.72%` $\to$ `22.83% ± 1.07%`** | `37.93% ± 0.23%` | **`33.13% ± 1.21%` (#1)** | **`-0.00021 ± 0.00019` (#1)** |
 
-### Paired Two-Sided Student-$t$ Significance (`df = 2`, Paired Seeds `{1001, 2002, 3003}`) & Spurious-Ambiguity Law
+### Paired Two-Sided Student-$`t`$ Significance (`df = 2`, Paired Seeds `{1001, 2002, 3003}`) & Spurious-Ambiguity Law
 
 1. **Statistically Significant Syntactic & Next-Word Superiority over Published Superword Tokenizers:**
    * **Fertility-Matched `BLiMP`:** `BT3_FullSynthesis` beats `B4_SuperBPE` on **all 3 seeds** by **`+2.93%`** (`86.44%` vs. `83.51%`, paired **`p = 0.0137`**) and outperforms even pure subword `B1_ByteBPE` (`85.89%`, `+0.55%`), proving that `AttnDemux` + `FoldableResidual` cures the relational-merge grammar degradation inherent to `SuperBPE` and `SupraTok`.
    * **Overall `BLiMP`:** `BT3_FullSynthesis` beats `B4_SuperBPE` across all 3 seeds by **`+1.16%`** (`83.41%` vs. `82.25%`, paired **`p = 0.0098`**).
-   * **Exact Next-Word Prediction (`Prefix-Cone`):** `BT3_FullSynthesis + Prefix-Cone` beats `B4_SuperBPE` by **`+6.61%`** (`22.83%` vs. `16.22%`, paired **`p = 0.0142`**) and `B5_SupraTok` by **`+4.08%`** (`18.75%`, paired **`p = 0.0238`**), recovering **94%** of `B1_ByteBPE`'s subword next-word accuracy (`23.27%`, `p = 0.63`) while preserving `4.571` B/tok compression (`+5.8%` fewer tokens) and test-time compute gearshifting (`20.84%` superword $\to$ **`21.72%`** unmerged subword on seed `1001`).
+   * **Exact Next-Word Prediction (`Prefix-Cone`):** `BT3_FullSynthesis + Prefix-Cone` beats `B4_SuperBPE` by **`+6.61%`** (`22.83%` vs. `16.22%`, paired **`p = 0.0142`**) and `B5_SupraTok` by **`+4.08%`** (`18.75%`, paired **`p = 0.0238`**), recovering **94%** of `B1_ByteBPE`'s subword next-word accuracy (`23.27%`, `p = 0.63`) while preserving `4.571` B/tok compression (`+5.8%` fewer tokens) and test-time compute gearshifting (`20.84%` superword → **`21.72%`** unmerged subword on seed `1001`).
 2. **Exact Closed-Form Explanation of the Single-Path `BPB` Offset under Dual-Granularity Pretraining (`q = 0.20`):**
-   * Because `BT3_FullSynthesis` stochastically unmerges phrases with probability $q = 0.20$ during training, Bayes-optimal surface probability splits `(1 - q) = 0.80` onto the superword token $P$ and `q = 0.20` onto its byte-identical base-subword path $(t_1, \dots, t_k)$ (Cao & Rimell, EMNLP 2021).
-   * Evaluating strictly along the single canonical merged path ($q_{\text{eval}} = 0$) without summing over the unmerged subword path incurs a deterministic cross-entropy offset of:
-     $$\Delta\text{BPB}_{\text{single-path}}(q) = \frac{f_{\text{phrase}} \cdot (-\log_2(1 - q))}{\text{bytes/token}} \approx \frac{0.15 \times 0.32193}{4.5708} = +0.01056\text{ BPB},$$
-     matching the empirical 3-seed `BT3 - B1` difference (**`+0.01026 BPB`**) to within **`0.0003` BPB**. Practitioners seeking pure single-gear perplexity set $q = 0$ (`BT1_FoldableResidual`), while $q = 0.20$ unlocks test-time subword downshifting and boundary-perturbation immunity (`-0.00021` BPB).
+   * Because `BT3_FullSynthesis` stochastically unmerges phrases with probability $`q = 0.20`$ during training, Bayes-optimal surface probability splits `(1 - q) = 0.80` onto the superword token $`P`$ and `q = 0.20` onto its byte-identical base-subword path $`(t_1, \dots, t_k)`$ (Cao & Rimell, EMNLP 2021).
+   * Evaluating strictly along the single canonical merged path ($`q_{\text{eval}} = 0`$) without summing over the unmerged subword path incurs a deterministic cross-entropy offset of:
+
+     ```math
+     \Delta\text{BPB}_{\text{single-path}}(q) = \frac{f_{\text{phrase}} \cdot (-\log_2(1 - q))}{\text{bytes/token}} \approx \frac{0.15 \times 0.32193}{4.5708} = +0.01056\text{ BPB},
+     ```
+
+     matching the empirical 3-seed `BT3 - B1` difference (**`+0.01026 BPB`**) to within **`0.0003` BPB**. Practitioners seeking pure single-gear perplexity set $`q = 0`$ (`BT1_FoldableResidual`), while $`q = 0.20`$ unlocks test-time subword downshifting and boundary-perturbation immunity (`-0.00021` BPB).
 
 ---
 
