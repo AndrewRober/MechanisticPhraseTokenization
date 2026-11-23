@@ -1,0 +1,423 @@
+{
+  "zero_retrain_prefix_cone_audit": {
+    "B1_ByteBPE": {
+      "naive_argmax_acc": 0.2088,
+      "prefix_cone_argmax_acc": 0.2088,
+      "cone_gain": 0.0
+    },
+    "C0_FreqMerge": {
+      "naive_argmax_acc": 0.0957,
+      "prefix_cone_argmax_acc": 0.1037,
+      "cone_gain": 0.008
+    },
+    "C2_ReserveMerge": {
+      "naive_argmax_acc": 0.0851,
+      "prefix_cone_argmax_acc": 0.0851,
+      "cone_gain": 0.0
+    },
+    "C1_ConflictMerge": {
+      "naive_argmax_acc": 0.121,
+      "prefix_cone_argmax_acc": 0.1316,
+      "cone_gain": 0.0106
+    },
+    "C3_SpilloverMerge": {
+      "naive_argmax_acc": 0.1822,
+      "prefix_cone_argmax_acc": 0.1875,
+      "cone_gain": 0.0053
+    },
+    "B4_SuperBPE": {
+      "naive_argmax_acc": 0.117,
+      "prefix_cone_argmax_acc": 0.125,
+      "cone_gain": 0.008
+    },
+    "B5_SupraTok": {
+      "naive_argmax_acc": 0.1582,
+      "prefix_cone_argmax_acc": 0.1569,
+      "cone_gain": -0.0013
+    },
+    "C4_BoundaryStable": {
+      "naive_argmax_acc": 0.1037,
+      "prefix_cone_argmax_acc": 0.1117,
+      "cone_gain": 0.008
+    },
+    "C5_ContrastMerge": {
+      "naive_argmax_acc": 0.1835,
+      "prefix_cone_argmax_acc": 0.1782,
+      "cone_gain": -0.0053
+    },
+    "B2_Unigram": {
+      "naive_argmax_acc": 0.2061,
+      "prefix_cone_argmax_acc": 0.2061,
+      "cone_gain": 0.0
+    },
+    "B3_SaGe": {
+      "naive_argmax_acc": 0.2048,
+      "prefix_cone_argmax_acc": 0.2048,
+      "cone_gain": 0.0
+    }
+  },
+  "breakthrough_runs": {
+    "Control_VEGAD": {
+      "bytes_per_token": 4.6949,
+      "test_bpb_1024tok": 1.35849,
+      "test_bpb_matched_bytes": 1.36118,
+      "unigram_bpb": 2.4825,
+      "contextual_gain_bpb": 1.12132,
+      "ood_tinystories_bpb": 1.44261,
+      "blimp_overall_acc": 0.7663,
+      "blimp_fertility_matched_acc": 0.7763,
+      "perturbation_bpb_degradation": 0.00043,
+      "next_word_naive_acc": 0.1064,
+      "next_word_prefix_cone_acc": 0.113,
+      "prefix_cone_gain": 0.0066,
+      "train_wall_sec": 743.44
+    },
+    "BT2_AttnDemux": {
+      "bytes_per_token": 4.5708,
+      "test_bpb_1024tok": 1.36519,
+      "test_bpb_matched_bytes": 1.36747,
+      "unigram_bpb": 2.50584,
+      "contextual_gain_bpb": 1.13838,
+      "ood_tinystories_bpb": 1.45062,
+      "blimp_overall_acc": 0.7553,
+      "blimp_fertility_matched_acc": 0.7766,
+      "perturbation_bpb_degradation": -0.00062,
+      "next_word_naive_acc": 0.1476,
+      "next_word_prefix_cone_acc": 0.1582,
+      "prefix_cone_gain": 0.0106,
+      "train_wall_sec": 755.8
+    },
+    "BT1_FoldableResidual": {
+      "bytes_per_token": 4.4931,
+      "test_bpb_1024tok": 1.34933,
+      "test_bpb_matched_bytes": 1.35196,
+      "unigram_bpb": 2.50271,
+      "contextual_gain_bpb": 1.15076,
+      "ood_tinystories_bpb": 1.4179,
+      "blimp_overall_acc": 0.7517,
+      "blimp_fertility_matched_acc": 0.7539,
+      "perturbation_bpb_degradation": 0.00035,
+      "next_word_naive_acc": 0.1769,
+      "next_word_prefix_cone_acc": 0.1835,
+      "prefix_cone_gain": 0.0066,
+      "train_wall_sec": 768.03
+    },
+    "BT3_FullSynthesis_Gearshift": {
+      "bytes_per_token": 4.5708,
+      "test_bpb_1024tok": 1.35343,
+      "test_bpb_matched_bytes": 1.35606,
+      "unigram_bpb": 2.50584,
+      "contextual_gain_bpb": 1.14978,
+      "ood_tinystories_bpb": 1.42549,
+      "blimp_overall_acc": 0.7703,
+      "blimp_fertility_matched_acc": 0.7794,
+      "perturbation_bpb_degradation": -0.00013,
+      "next_word_naive_acc": 0.1795,
+      "next_word_prefix_cone_acc": 0.1822,
+      "prefix_cone_gain": 0.0027,
+      "gearshift_pareto": {
+        "high_gear_superword_acc": 0.1681,
+        "adaptive_gearshift_acc": 0.1699,
+        "low_gear_subword_acc": 0.1821,
+        "high_gear_tokens": 32880.0,
+        "adaptive_total_tokens_incl_retry": 41717.0,
+        "low_gear_tokens": 35218.0,
+        "downshift_fraction": 0.25
+      },
+      "train_wall_sec": 760.86
+    }
+  },
+  "iso_flops_120M_runs": {
+    "B4_SuperBPE_IsoFLOPs": {
+      "bytes_per_token": 4.6645,
+      "test_bpb_1024tok": 1.34725,
+      "test_bpb_matched_bytes": 1.34981,
+      "unigram_bpb": 2.48381,
+      "contextual_gain_bpb": 1.134,
+      "ood_tinystories_bpb": 1.43221,
+      "blimp_overall_acc": 0.7803,
+      "blimp_fertility_matched_acc": 0.7865,
+      "perturbation_bpb_degradation": 2e-05,
+      "next_word_naive_acc": 0.1303,
+      "next_word_prefix_cone_acc": 0.133,
+      "prefix_cone_gain": 0.0027,
+      "emitted_train_tokens": 120000512,
+      "train_wall_sec": 796.67
+    },
+    "BT3_FullSynthesis_IsoFLOPs": {
+      "bytes_per_token": 4.5708,
+      "test_bpb_1024tok": 1.34393,
+      "test_bpb_matched_bytes": 1.34682,
+      "unigram_bpb": 2.50584,
+      "contextual_gain_bpb": 1.15902,
+      "ood_tinystories_bpb": 1.42176,
+      "blimp_overall_acc": 0.7853,
+      "blimp_fertility_matched_acc": 0.8057,
+      "perturbation_bpb_degradation": -0.00037,
+      "next_word_naive_acc": 0.1822,
+      "next_word_prefix_cone_acc": 0.1915,
+      "prefix_cone_gain": 0.0093,
+      "gearshift_pareto": {
+        "high_gear_superword_acc": 0.1769,
+        "adaptive_gearshift_acc": 0.1804,
+        "low_gear_subword_acc": 0.1909,
+        "high_gear_tokens": 32880.0,
+        "adaptive_total_tokens_incl_retry": 41794.0,
+        "low_gear_tokens": 35218.0,
+        "downshift_fraction": 0.25
+      },
+      "emitted_train_tokens": 120000512,
+      "train_wall_sec": 787.47
+    }
+  },
+  "layer_xray": {
+    "BT3_FullSynthesis": {
+      "layer_prev_token_stitching_mass": [
+        0.0521,
+        0.074,
+        0.1254,
+        0.1145,
+        0.2375,
+        0.0893,
+        0.1135
+      ],
+      "layer_mean_lookback_distance": [
+        50.491,
+        39.489,
+        33.311,
+        31.998,
+        22.924,
+        41.924,
+        30.861
+      ],
+      "layer_attn_entropy_nats": [
+        4.0026,
+        3.7621,
+        3.3685,
+        3.2383,
+        2.6727,
+        2.8389,
+        2.9265
+      ]
+    },
+    "B1_ByteBPE": {
+      "layer_prev_token_stitching_mass": [
+        0.0562,
+        0.1516,
+        0.1154,
+        0.1053,
+        0.1897,
+        0.0961,
+        0.1411
+      ],
+      "layer_mean_lookback_distance": [
+        51.948,
+        30.694,
+        32.145,
+        30.916,
+        22.861,
+        40.846,
+        24.24
+      ],
+      "layer_attn_entropy_nats": [
+        3.99,
+        3.1116,
+        3.4069,
+        3.4023,
+        2.7819,
+        3.1213,
+        2.6314
+      ]
+    },
+    "B4_SuperBPE": {
+      "layer_prev_token_stitching_mass": [
+        0.0357,
+        0.0748,
+        0.1982,
+        0.1588,
+        0.1432,
+        0.0831,
+        0.1389
+      ],
+      "layer_mean_lookback_distance": [
+        55.233,
+        38.113,
+        27.897,
+        28.799,
+        28.531,
+        37.787,
+        27.4
+      ],
+      "layer_attn_entropy_nats": [
+        4.1671,
+        3.4193,
+        3.0766,
+        3.2513,
+        3.0864,
+        3.2049,
+        2.7207
+      ]
+    },
+    "C3_SpilloverMerge": {
+      "layer_prev_token_stitching_mass": [
+        0.046,
+        0.1006,
+        0.1799,
+        0.0829,
+        0.2134,
+        0.0924,
+        0.1631
+      ],
+      "layer_mean_lookback_distance": [
+        53.199,
+        33.864,
+        29.216,
+        37.613,
+        24.252,
+        39.672,
+        24.118
+      ],
+      "layer_attn_entropy_nats": [
+        4.0237,
+        3.2849,
+        3.1739,
+        3.5517,
+        2.7611,
+        3.2223,
+        2.6425
+      ]
+    }
+  },
+  "attention_demux_diagnostics": {
+    "measured_candidates": 5884.0,
+    "jsd_veto_threshold_bits": 0.0549,
+    "vetoed_relational_spans": 3586.0
+  },
+  "learned_noncompositional_residuals": {
+    "top_15_idiomatic_phrases": [
+      [
+        1.437757134437561,
+        " over the course"
+      ],
+      [
+        1.3832149505615234,
+        " Control and Prevention"
+      ],
+      [
+        1.326231837272644,
+        " is a type"
+      ],
+      [
+        1.3259329795837402,
+        " not be able"
+      ],
+      [
+        1.3244335651397705,
+        " in the midst"
+      ],
+      [
+        1.3128294944763184,
+        " Disease Control and"
+      ],
+      [
+        1.3072785139083862,
+        " he or"
+      ],
+      [
+        1.2533094882965088,
+        " his or"
+      ],
+      [
+        1.242348074913025,
+        " with the help"
+      ],
+      [
+        1.2148667573928833,
+        " the National Institutes"
+      ],
+      [
+        1.2101033926010132,
+        " should be able"
+      ],
+      [
+        1.1997859477996826,
+        " National Institutes"
+      ],
+      [
+        1.1233476400375366,
+        " to as the"
+      ],
+      [
+        1.111253023147583,
+        " the way for"
+      ],
+      [
+        1.1100279092788696,
+        " as part"
+      ]
+    ],
+    "bottom_15_purely_compositional_phrases": [
+      [
+        0.4816635251045227,
+        " North America"
+      ],
+      [
+        0.48021939396858215,
+        " commonly used"
+      ],
+      [
+        0.4736053943634033,
+        " much more"
+      ],
+      [
+        0.47238391637802124,
+        " would be"
+      ],
+      [
+        0.4723820686340332,
+        " health care"
+      ],
+      [
+        0.47013840079307556,
+        " United Kingdom"
+      ],
+      [
+        0.45823970437049866,
+        " mental health"
+      ],
+      [
+        0.44932785630226135,
+        " has been"
+      ],
+      [
+        0.44446849822998047,
+        " could be"
+      ],
+      [
+        0.44183021783828735,
+        " United Nations"
+      ],
+      [
+        0.433877557516098,
+        " New York"
+      ],
+      [
+        0.41130563616752625,
+        " Supreme Court"
+      ],
+      [
+        0.40918996930122375,
+        " New Jersey"
+      ],
+      [
+        0.4047005772590637,
+        " carbon dioxide"
+      ],
+      [
+        0.38785478472709656,
+        " North Carolina"
+      ]
+    ],
+    "fold_logit_max_error": 0.0
+  }
+}

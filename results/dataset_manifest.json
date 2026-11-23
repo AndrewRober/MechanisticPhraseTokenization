@@ -1,0 +1,44 @@
+{
+  "dataset": "HuggingFaceFW/fineweb-edu (sample-10BT)",
+  "splits": {
+    "train_120M.jsonl": {
+      "docs": 113457,
+      "b1_ref_tokens": 120000596,
+      "utf8_bytes": 517344796,
+      "sha256": "c405dea5d26da04eb5c504c8a6c6a9dd68ba688895b4deab0dca720657540d4e"
+    },
+    "calib_a_5M.jsonl": {
+      "docs": 4315,
+      "b1_ref_tokens": 5009816,
+      "utf8_bytes": 21852153,
+      "sha256": "7a2833a49f750de30971fcb12cdf923eb70b23eadf1c910dedd799bae70de8b7"
+    },
+    "calib_b_5M.jsonl": {
+      "docs": 4757,
+      "b1_ref_tokens": 5000394,
+      "utf8_bytes": 21461294,
+      "sha256": "350117f046f5ccaa213cf764852d7ea0289d2d65228f2256dca7219e4f60c914"
+    },
+    "val_3M.jsonl": {
+      "docs": 2877,
+      "b1_ref_tokens": 3003029,
+      "utf8_bytes": 12919127,
+      "sha256": "cf380c15aeb3b496fe1552ae875ca06434ad7f73c73b1640ebdc5dd4be44c663"
+    },
+    "test_5M.jsonl": {
+      "docs": 5166,
+      "b1_ref_tokens": 5000416,
+      "utf8_bytes": 21531818,
+      "sha256": "cc95fa665a7fb3fe39d36da071c533981781b35d7b7b315976c20b8608cdfecc"
+    },
+    "test_tinystories.jsonl": {
+      "docs": 2000,
+      "utf8_bytes": 1593917,
+      "sha256": "e35dac307be866c7a095604b868df689e7f514acec469e9fa710c4433d4fb151"
+    },
+    "test_blimp.jsonl": {
+      "pairs": 3000,
+      "sha256": "1e54479a33cd51ca2e60bc2954f474729d3e084a22007d2454d7efc404ab326f"
+    }
+  }
+}

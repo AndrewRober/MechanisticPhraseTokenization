@@ -1,0 +1,27 @@
+name: Verify Invariants & Figures
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU PyTorch & Core Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install numpy tokenizers matplotlib
+      - name: Verify Stage A Lossless UTF-8 & Boundary Guards
+        run: python scripts/validate_stage_a.py
+      - name: Verify Foldable Residuals, Prefix-Cones, & Dual-Granularity
+        run: python scripts/validate_breakthroughs.py
+      - name: Verify Reproducible Publication Figures from Scoreboards
+        run: python scripts/generate_paper_figures.py

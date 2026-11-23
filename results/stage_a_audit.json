@@ -1,0 +1,79 @@
+{
+  "B1_ByteBPE": {
+    "name": "B1_ByteBPE",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.2833,
+    "active_phrase_slots_in_sample": 1868,
+    "phrase_token_share": 0.016
+  },
+  "C0_FreqMerge": {
+    "name": "C0_FreqMerge",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.67,
+    "active_phrase_slots_in_sample": 2028,
+    "phrase_token_share": 0.1061
+  },
+  "C2_ReserveMerge": {
+    "name": "C2_ReserveMerge",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.6696,
+    "active_phrase_slots_in_sample": 2028,
+    "phrase_token_share": 0.1062
+  },
+  "C1_ConflictMerge": {
+    "name": "C1_ConflictMerge",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.607,
+    "active_phrase_slots_in_sample": 1949,
+    "phrase_token_share": 0.0842
+  },
+  "C3_SpilloverMerge": {
+    "name": "C3_SpilloverMerge",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.4475,
+    "active_phrase_slots_in_sample": 1964,
+    "phrase_token_share": 0.0483
+  },
+  "B4_SuperBPE": {
+    "name": "B4_SuperBPE",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.6256,
+    "active_phrase_slots_in_sample": 1287,
+    "phrase_token_share": 0.0914
+  },
+  "B5_SupraTok": {
+    "name": "B5_SupraTok",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.3836,
+    "active_phrase_slots_in_sample": 1366,
+    "phrase_token_share": 0.0371
+  },
+  "C4_BoundaryStable": {
+    "name": "C4_BoundaryStable",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.6561,
+    "active_phrase_slots_in_sample": 2018,
+    "phrase_token_share": 0.0935
+  },
+  "C5_ContrastMerge": {
+    "name": "C5_ContrastMerge",
+    "vocab_size": 16384,
+    "bytes_per_token": 4.4411,
+    "active_phrase_slots_in_sample": 1964,
+    "phrase_token_share": 0.0458
+  },
+  "B2_Unigram": {
+    "name": "B2_Unigram",
+    "vocab_size": 16384,
+    "bytes_per_token": 3.9563,
+    "active_phrase_slots_in_sample": 1168,
+    "phrase_token_share": 0.0046
+  },
+  "B3_SaGe": {
+    "name": "B3_SaGe",
+    "vocab_size": 16384,
+    "bytes_per_token": 3.9543,
+    "active_phrase_slots_in_sample": 1513,
+    "phrase_token_share": 0.0086
+  }
+}

@@ -1,0 +1,123 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Cao and Rimell(2021)]{cao2021bench}
+Kris Cao and Laura Rimell.
+\newblock You should evaluate your language model on marginal likelihood over
+  tokenisations.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 2104--2114, 2021.
+
+\bibitem[Eldan and Li(2023)]{eldan2023tinystories}
+Ronen Eldan and Yuanzhi Li.
+\newblock {TinyStories}: How small can language models be and still speak
+  coherent {E}nglish?
+\newblock \emph{arXiv preprint arXiv:2305.07759}, 2023.
+
+\bibitem[Goyal et~al.(2024)Goyal, Ji, Rawat, Menon, Kumar, and
+  Nagarajan]{goyal2024think}
+Sachin Goyal, Ziwei Ji, Ankit~Singh Rawat, Aditya~Krishna Menon, Sanjiv Kumar,
+  and Vaishnavh Nagarajan.
+\newblock Think before you speak: Training language models with pause tokens.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2024.
+
+\bibitem[Huang et~al.(2025)Huang, Zhu, Zeng, Wang, Min, and
+  Zhou]{huang2025overtokenized}
+Hongzhi Huang, Defa Zhu, Banggu Zeng, Qiyang Wang, Yutao Min, and Xun Zhou.
+\newblock Over-tokenized transformer: Vocabulary is generally worth scaling.
+\newblock \emph{arXiv preprint arXiv:2501.16975}, 2025.
+
+\bibitem[Kudo(2018)]{kudo2018subword}
+Taku Kudo.
+\newblock Subword regularization: Improving neural network translation models
+  with multiple subword candidates.
+\newblock In \emph{Proceedings of the 56th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 66--75, 2018.
+
+\bibitem[Land and Bartolo(2024)]{land2024fishing}
+Sander Land and Max Bartolo.
+\newblock Fishing for {Magikarp}: Automatically detecting under-trained tokens
+  in large language models.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, 2024.
+
+\bibitem[Liu et~al.(2025)Liu, Hayase, Hofmann, Oh, Smith, and
+  Choi]{liu2025superbpe}
+Alisa Liu, Jonathan Hayase, Valentin Hofmann, Sewoong Oh, Noah~A. Smith, and
+  Yejin Choi.
+\newblock {SuperBPE}: Space travel for language models.
+\newblock \emph{arXiv preprint arXiv:2503.13423}, 2025.
+
+\bibitem[Liu et~al.(2024)Liu, Wang, Qing, Kuang, Kang, Sun, and
+  Wu]{liu2024gold}
+Chengyuan Liu, Shihang Wang, Lizhi Qing, Kun Kuang, Yangyang Kang, Changlong
+  Sun, and Fei Wu.
+\newblock Gold panning in vocabulary: An adaptive method for vocabulary
+  expansion of domain-specific {LLMs}.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 7442--7459, 2024.
+
+\bibitem[Provilkov et~al.(2020)Provilkov, Emelianenko, and
+  Voita]{provilkov2020bpe}
+Ivan Provilkov, Dmitrii Emelianenko, and Elena Voita.
+\newblock {BPE}-dropout: Simple and effective subword regularization.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 1882--1892, 2020.
+
+\bibitem[Reif et~al.(2025)Reif, Kaplan, and Schwartz]{reif2025cobpe}
+Yuval Reif, Guy Kaplan, and Roy Schwartz.
+\newblock More than words: Compositional tokenization for efficient language
+  models.
+\newblock \emph{Conference on Language Modeling (COLM)}, 2025.
+
+\bibitem[Schaeffer and Koyejo(2026)]{schaeffer2026myths}
+Rylan Schaeffer and Sanmi Koyejo.
+\newblock Tokenizer myths and where to find them.
+\newblock \emph{arXiv preprint arXiv:2611.04215}, 2026.
+
+\bibitem[Schmidt et~al.(2025)Schmidt, Reddy, Tanner, and
+  Pinter]{schmidt2025boundless}
+Craig~W. Schmidt, Varshini Reddy, Chris Tanner, and Yuval Pinter.
+\newblock Boundless byte pair encoding: Breaking the pre-tokenization barrier.
+\newblock \emph{arXiv preprint arXiv:2504.00178}, 2025.
+
+\bibitem[Sennrich et~al.(2016)Sennrich, Haddow, and Birch]{sennrich2016neural}
+Rico Sennrich, Barry Haddow, and Alexandra Birch.
+\newblock Neural machine translation of rare words with subword units.
+\newblock In \emph{Proceedings of the 54th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 1715--1725, 2016.
+
+\bibitem[T{\u{a}}nase and Pelican(2026)]{tanase2026supratok}
+Andrei-Valentin T{\u{a}}nase and Elena Pelican.
+\newblock {SupraTok}: Cross-boundary tokenization for enhanced language model
+  performance.
+\newblock \emph{Transactions of the Association for Computational Linguistics
+  (TACL)}, 14:\penalty0 1787--1802, 2026.
+
+\bibitem[Warstadt et~al.(2020)Warstadt, Parrish, Liu, Mohananey, Peng, Wang,
+  and Bowman]{warstadt2020blimp}
+Alex Warstadt, Alicia Parrish, Haokun Liu, Anhad Mohananey, Wei Peng, Sheng-Fu
+  Wang, and Samuel~R. Bowman.
+\newblock {BLiMP}: The benchmark of linguistic minimal pairs for {E}nglish.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  8:\penalty0 377--392, 2020.
+
+\bibitem[Yang et~al.(2026)Yang, Lin, and Zhang]{yang2026litetoken}
+Haotong Yang, Zhouchen Lin, and Muhan Zhang.
+\newblock {LiteToken}: Removing intermediate merge residues from {BPE}
+  tokenizers.
+\newblock \emph{arXiv preprint arXiv:2602.04706}, 2026.
+
+\bibitem[Yehezkel and Pinter(2023)]{yehezkel2023incorporating}
+Shaked Yehezkel and Yuval Pinter.
+\newblock Incorporating context into subword vocabularies.
+\newblock In \emph{Proceedings of the 17th Conference of the European Chapter
+  of the Association for Computational Linguistics (EACL)}, pages 623--635,
+  2023.
+
+\end{thebibliography}
