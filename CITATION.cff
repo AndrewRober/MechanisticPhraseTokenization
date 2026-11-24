@@ -1,5 +1,6 @@
 cff-version: 1.2.0
-message: "If you use this codebase, tokenizers, or empirical findings, please cite our paper."
+message: "If you use this software, tokenizers, or empirical findings, please cite this work as below."
+type: software
 title: "What Earns a Phrase Its Own Token? Mechanistic Multi-Word Vocabulary Allocation, Compositional-Residual Folding, and Test-Time Compute Gearshifting"
 authors:
   - family-names: "Samy"
@@ -7,12 +8,23 @@ authors:
     email: "andrew.rober@bytesglue.com"
     affiliation: "BytesGlue"
 repository-code: "https://github.com/AndrewRober/MechanisticPhraseTokenization"
-url: "https://github.com/AndrewRober"
-date-released: 2026-11-23
+url: "https://huggingface.co/AndrewR123/MechanisticPhraseTokenization"
 license: MIT
+version: "1.0.0"
+date-released: "2026-11-23"
 keywords:
+  - large-language-models
   - tokenization
-  - large language models
-  - superword tokenization
-  - mechanistic interpretability
-  - test-time compute
+  - superword-bpe
+  - pretraining
+  - mechanistic-interpretability
+  - test-time-compute
+preferred-citation:
+  type: article
+  title: "What Earns a Phrase Its Own Token? Mechanistic Multi-Word Vocabulary Allocation, Compositional-Residual Folding, and Test-Time Compute Gearshifting"
+  authors:
+    - family-names: "Samy"
+      given-names: "Andrew Rober Fouad"
+      affiliation: "BytesGlue"
+  year: 2026
+  url: "https://github.com/AndrewRober/MechanisticPhraseTokenization"

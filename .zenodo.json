@@ -1,0 +1,33 @@
+{
+  "title": "What Earns a Phrase Its Own Token? Mechanistic Multi-Word Vocabulary Allocation, Compositional-Residual Folding, and Test-Time Compute Gearshifting",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "Controlled 34-model Transformer pretraining study (30.4M across 11 tokenizers and 3 paired seeds on 300M unique FineWeb-Edu tokens, scaling zero-shot 5x to 149.6M parameters) investigating multi-word vocabulary allocation. Reveals 33%-37% dead stepping-stone phrase slots in iterative SuperBPE and SupraTok; diagnoses and cures Superword Vote-Splitting via zero-retraining Prefix-Cone Vote Aggregation; introduces Foldable Compositional-Residual Superwords (exact 0.0 float folding error into standard [V, d] lookup tables, #1 out-of-domain generalization, unsupervised idiom discovery); and establishes Attention-Query De-Multiplexing (-51.2% Layer-2 token-stitching attention, 86.81% BLiMP and 39.20% ARC-Easy at 150M) alongside single-checkpoint CoT-free Test-Time Compute Gearshifting (+1.58% accuracy gain).",
+  "creators": [
+    {
+      "name": "Samy, Andrew Rober Fouad",
+      "affiliation": "BytesGlue, Dubai, United Arab Emirates"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Large Language Models",
+    "Tokenization",
+    "SuperBPE",
+    "Transformer Pretraining",
+    "Mechanistic Interpretability",
+    "Test-Time Compute"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/AndrewRober/MechanisticPhraseTokenization",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://huggingface.co/AndrewR123/MechanisticPhraseTokenization",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
