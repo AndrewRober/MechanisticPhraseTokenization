@@ -1,7 +1,8 @@
 # What Earns a Phrase Its Own Token?
 ### Mechanistic Multi-Word Vocabulary Allocation, Compositional-Residual Folding, and Test-Time Compute Gearshifting
 
-[![Paper PDF](https://img.shields.io/badge/Paper-PDF%20%2815%20Pages%29-b31b1b.svg)](paper/main.pdf)
+[![Paper PDF](https://img.shields.io/badge/Paper-PDF%20%2815%20Pages%29-b31b1b.svg)](https://andrewrober.github.io/papers/mechanistic-phrase-tokenization.pdf)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/AndrewRober/MechanisticPhraseTokenization/blob/main/notebooks/Mechanistic_Phrase_Tokenization_Demo.ipynb)
 [![HuggingFace Models](https://img.shields.io/badge/%F0%9F%A4%97%20Models-30M%20%26%20150M%20Weights-ffb000.svg)](https://huggingface.co/AndrewR123/MechanisticPhraseTokenization)
 [![HuggingFace Space](https://img.shields.io/badge/%F0%9F%A7%AC%20HF%20Space-Interactive%20Explorer-0ea5e9.svg)](https://huggingface.co/spaces/AndrewR123/Research-Portfolio)
 [![HuggingFace Dataset](https://img.shields.io/badge/%F0%9F%93%8A%20HF%20Dataset-34--Model%20Benchmarks-10b981.svg)](https://huggingface.co/datasets/AndrewR123/MechanisticPhraseTokenization-Benchmarks)
@@ -100,8 +101,9 @@ bash scripts/run_pipeline.sh
 
 ## Author & Contact
 
-**Andrew Rober Fouad Samy** (BytesGlue)
-- Email: [andrew.rober@bytesglue.com](mailto:andrew.rober@bytesglue.com)
+**Andrew Rober Fouad Samy** (CTO @ [BytesGlue](https://www.bytesglue.com), Dubai, UAE)
+- Research Portal: [andrewrober.github.io](https://andrewrober.github.io/)
+- Email: [andrew.rober@bytesglue.com](mailto:andrew.rober@bytesglue.com) *(Open to Senior Research Engineer / MTS roles & high-impact AI/systems consulting)*
 - GitHub: [github.com/AndrewRober](https://github.com/AndrewRober)
 - LinkedIn: [linkedin.com/in/andrew-rober](https://www.linkedin.com/in/andrew-rober/)
 
